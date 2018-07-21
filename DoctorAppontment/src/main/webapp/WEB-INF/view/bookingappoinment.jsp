@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="text/css">
     <title>Booking Appoinment</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("form").submit(function () {
+
+                alert("Success fully booking!!");
+
+            });
+
+        });
+    </script>
     <style>
         body{
             background: url('back.jpg');
@@ -61,11 +72,21 @@
             width: 100%;
             height: 35px;
         }
-        #sbmit{
-            width: 50%;
-            float: right;
+        #sbmit1{
+            width: 48%;
+            float: left;
             height: 35px;
-            margin: 5px 0px;
+            margin: auto;
+            color: white;
+        }
+        #sbmit1:hover{
+            background-color: rgba(0,0,0,0.5);
+        }
+        #sbmit{
+            width: 49%;
+            float: left;
+            height: 35px;
+            margin: auto;
         }
         #sbmit:hover{
             background-color: rgba(0,0,0,0.7);
@@ -89,13 +110,13 @@
                     <div class="col-12">
                         <div id="btns">
                             <ul>
-                                <li><a href="">My Details</a></li>
-                                <li><a href="transtomyde">Book Appoinment</a></li>
+                                <li><a href="loginTo">My Details</a></li>
+                                <li><a href="appoinmentbook">Book Appoinment</a></li>
                                 <li><a href="bookingh">View Booking</a></li>
-                                <li><a href="">Cancle Booking</a></li>
-                                <li><a href="">Search Doctor</a></li>
+                                <li><a href="canclebook">Cancle Booking</a></li>
+                                <li><a href="Serachbook">Search Your Booking</a></li>
                                 <li><a href="">Feedback</a></li>
-                                <li><a href="">Logout</a></li>
+                                <li><a href="logout">Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -112,10 +133,19 @@
 
                             <form action="savebookingn" method="post" id="from">
                                 <table class="form-group">
+                                    <tr><td>Patient Name <input type="text" class="form-control" name="patname" required></td></tr>
+                                    <tr><td>Doctor_Name
+                                        <select class="custom-select" name="doctname" required>
+                                            <option value="Rasel">Rasel</option>
+                                            <option value="Asha" >Asha</option>
+                                            <option value="Three" >Three</option>
+                                            <option value="Three" >Three</option>
+                                            <option value="Three">Three</option>
+                                            <option value="Three">Three</option>
+                                        </select>
 
-                                    <tr><td>Patient Name <input type="text" class="form-control" name="p_name" required></td></tr>
-                                    <tr><td>Doctor Name <input type="text" class="form-control" name="d_name" required></td></tr>
-                                    <tr><td>Select Category
+                                    </td></tr>
+                                    <tr><td>Doctor Category
                                         <select class="custom-select" name="categoris" required>
                                             <option value="Medicine">Medicine</option>
                                             <option value="Cardiologist" >Cardiologist</option>
@@ -125,9 +155,15 @@
                                             <option value="Three">Three</option>
                                         </select>
                                     </td></tr>
-                                    <tr><td>Select Date<input type="date" name="date" id="dpicker" required></td></tr>
-                                    <tr><td>Select Time<input type="time" name="time" id="dpicker" required></td></tr>
-                                    <tr><td><input type="submit" name="submit" value="Submit" id="sbmit"></td></tr>
+                                    <tr><td>Date<input type="date" name="date" id="dpicker" required></td></tr>
+
+                                    <tr><td>Time<input type="time" name="time" id="dpicker" required ></td></tr>
+                                    <tr>
+                                        <td>
+                                        <button type="button" name="submit" id="sbmit1" class="btn btn-success form-control"
+                                                    data-toggle="modal" data-target="#myModal">Check Booking</button>
+                                            <input type="submit" name="submit" value="Booking" id="sbmit" class="form-control ml-2"></td>
+                                    </tr>
                                 </table>
                             </form>
 
@@ -141,8 +177,30 @@
     </div>
 </div>
 
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
 
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Check Your Registation: </h4>
+            </div>
+            <div class="modal-body">
+                <p>Al ready booking.</p>
+            </div>
+            <div class="modal-footer">
+                <tr>
+                    <td>Last_B_Time<input type="text" name="time" value="00.00" id="dpicker"></td>
+                </tr>
+                <a href="checkbook"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></a>
+            </div>
+        </div>
 
+    </div>
+</div>
+
+</body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

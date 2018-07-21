@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="font-awesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="text/css">
-    <title>Patien Profile</title>
+    <title>Home</title>
     <style>
         body{
             background: url('back.jpg');
@@ -27,28 +27,21 @@
             background-repeat: no-repeat;
             min-height: 300px;
         }
-        #btns ul{
-            margin: 0px -13px;
-            padding: 0;
+
+        .btn{
+            background: #333472;
+            width: 150px;
+            height: 150px;
+            border: 10px solid #009688;
         }
-        #btns ul li{
-            float: left;
-            list-style: none;
+        #btn1{
+            line-height: 7;
+            font-size: 17px;
         }
-        #btns ul li a{
+        #btn1:hover{
             color: white;
-            padding: 0px 7px;
-        }
-        #btns ul li a:hover{
-            text-decoration: none;
-            background: #2563c6;
-        }
-        #table{
-            color: white;
-            background-color: rgba(0,0,0,0.4);
-        }
-        thead td{
-            font-weight: bold;
+            background: #437b89;
+            transition: 0.9s;
         }
 
 
@@ -56,49 +49,32 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-1"></div>
-        <div class="col-10">
+        <div class="col-2"></div>
+        <div class="col-8">
             <div id="baby" class="rounded mt-2">
                 <i class="fas fa-plus-square text-danger"style="font-size: 50px;float: right;margin: 20px 240px;"></i>
                 <h3 id="h1" class="text-left text-danger pl-3 py-5">DOCTOR BOOKING APPOINMENT SYSTEM</h3>
             </div>
+            <div class="rounded mt-2" id="baby2">
+                <h3 class="text-center text-warning">Choose Your Option!!</h3>
+                <div class="container mt-5">
+                    <div class="row mt-5">
+                        <div class="col-3"></div>
 
-
-            <div class="container bg-primary rounded mt-1">
-                <div class="row">
-                    <div class="col-12">
-                        <div id="btns">
-                            <ul>
-                                <li><a href="loginTo">My Details</a></li>
-                                <li><a href="appoinmentbook">Book Appoinment</a></li>
-                                <li><a href="viewBookig">View Booking</a></li>
-                                <li><a href="canclebook">Cancle Booking</a></li>
-                                <li><a href="Serachbook">Search Your Booking</a></li>
-                                <li><a href="">Feedback</a></li>
-                                <li><a href="logout">Logout</a></li>
-                            </ul>
+                        <div class="col-3">
+                            <div>
+                                <a href="patientio" id="btn1" class="btn rounded-circle text-center">Patient Profile </a></div>
+                        </div>
+                        <div class="col-3">
+                            <div>
+                                <a href="doctorinfo" id="btn1" class="btn rounded-circle text-center">Doctor Profile</a></div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-
-            <div class="rounded mt-1" id="baby2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-1"></div>
-                        <div class="col-10 text-center mt-3">
-
-
-                        </div>
-                    </div>
-                    <div class="col-1"></div>
                 </div>
             </div>
         </div>
+        <div class="col-2"></div>
     </div>
-    <div class="col-1"></div>
-</div>
 </div>
 
 

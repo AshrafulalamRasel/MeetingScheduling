@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="text/css">
     <title>Patien Profile</title>
+
+
     <style>
         body{
             background: url('back.jpg');
@@ -22,12 +24,7 @@
             background-repeat: no-repeat;
             min-height: 300px;
         }
-        #baby2{
-            background: url('back1.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            min-height: 300px;
-        }
+
         #btns ul{
             margin: 0px -13px;
             padding: 0;
@@ -46,10 +43,18 @@
         }
         #table{
             color: white;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0,0,0,0.7);
         }
         thead td{
             font-weight: bold;
+        }
+        #ddetail{
+            background-color: rgba(0,0,0,0.8);
+            border-radius: 5px;
+            padding: 10px 25px;
+        }
+        #sbtn{
+            border-radius: 25px;
         }
 
 
@@ -62,73 +67,66 @@
             <div id="baby" class="rounded mt-2">
                 <i class="fas fa-plus-square text-danger"style="font-size: 50px;float: right;margin: 20px 240px;"></i>
                 <h3 id="h1" class="text-left text-danger pl-3 py-5">DOCTOR BOOKING APPOINMENT SYSTEM</h3>
-            </div>
-
-
-            <div class="container bg-primary rounded mt-1">
                 <div class="row">
-                    <div class="col-12">
-                        <div id="btns">
-                            <ul>
-                                <li><a href="">My Details</a></li>
-                                <li><a href="booki">Book Appoinment</a></li>
-                                <li><a href="viewbook">View Booking</a></li>
-                                <li><a href="canclebook">Cancle Booking</a></li>
-                                <li><a href="Serachbook">Search Your Booking</a></li>
-                                <li><a href="">Feedback</a></li>
-                                <li><a href="logout">Logout</a></li>
-                            </ul>
-                        </div>
+                    <div class="col-4"></div>
+                    <div class="col-4 text-center">
+                        <a href="yourprofile"><button type="button" class="btn btn-danger px-5" id="sbtn">Search Doctor Using by regi_id_N:</button></a>
                     </div>
-                </div>
-            </div>
-
-
-            <div class="rounded mt-1" id="baby2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-1"></div>
-                        <div class="col-10 text-center mt-3">
-                            <h2 class="text-center">Details</h2>
-
-                            <div class="table-responsive-md" id="table">
-                                <table class="table table-striped table-bordered">
-                                    <thead>
-                                    <tr>
-                                        <th>Patient_Id</th>
-                                        <th>Patient_Name</th>
-                                        <th>Doctor_Name</th>
-                                        <th>Doctor_Category</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Edit</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach var="book" items="${books}">
-                                        <tr>
-                                            <td>${book.id}</td>
-                                            <td>${book.patname}</td>
-                                            <td>${book.doctname}</td>
-                                            <td>${book.categoris}</td>
-                                            <td>${book.date}</td>
-                                            <td>${book.time}</td>
-                                            <td><a href="/edit-patient?id=${book.id}"><span>
-                                     <i class="fa fa-edit"></i></span></a></td>
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="col-1"></div>
-                    </div>
+                    <div class="col-4"></div>
                 </div>
             </div>
         </div>
         <div class="col-1"></div>
     </div>
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10 text-center mt-3"><h2 class="text-center text-danger" id="ddetail">Doctor's Details</h2></div>
+                    <div class="col-1"></div>
+                </div>
+
+                <div style="height: 400px;overflow-y: auto;">
+                            <div class="table-responsive-sm" id="table">
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Doctor_Reg:</th>
+                                        <th>Doctor_Name</th>
+                                        <th>Doctor_Password</th>
+                                        <th>Doctor_Category</th>
+                                        <th>Visit_patient_Date</th>
+                                        <th>Starting_Time</th>
+                                        <th>Ending_Time</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <c:forEach var="doctor" items="${addm }">
+                                        <tr>
+                                            <td>${doctor.id}</td>
+                                            <td>${doctor.doctorname}</td>
+                                            <td>${doctor.doctorpass}</td>
+                                            <td>${doctor.doctorcategori}</td>
+                                            <td>${doctor.selectdate}</td>
+                                            <td>${doctor.startingtime}</td>
+                                            <td>${doctor.endingtime}</td>
+
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                </div>
 </div>
+
+
+
+
+
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

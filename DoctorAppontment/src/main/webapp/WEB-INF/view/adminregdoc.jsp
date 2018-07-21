@@ -8,17 +8,19 @@
     <link rel="stylesheet" href="font-awesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="text/css">
-    <title>Registration</title>
+    <title>Booking Appoinment</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
             $("form").submit(function () {
-                alert("Successfully Registation!!");
+
+                alert("SuccessFully Doctor Registation!!");
 
             });
 
         });
     </script>
+
     <style>
         body{
             background: url('back.jpg');
@@ -53,30 +55,35 @@
             text-decoration: none;
             background: #2563c6;
         }
-        #table{
-            color: white;
-            background-color: rgba(0,0,0,0.4);
+
+        .form-group{
+            width: 100%;
+            margin:0px 90px;
         }
-        thead td{
-            font-weight: bold;
-        }
-        #fg{
-            color: white;
+        .form-group tr td input{
             border: none;
             border-radius: 0;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0,0,0,0.3);
         }
-        #fg1{
+        .custom-select{
+            border: none;
+            border-radius: 0;
+            background-color: rgba(0,0,0,0.3);
+        }
+        #dpicker{
+            width: 100%;
+            height: 35px;
+        }
+        #sbmit{
             width: 50%;
             float: right;
-            color: white;
-            border: none;
-            border-radius: 0;
-            background-color: rgba(0,0,0,0.5);
+            height: 35px;
+            margin: 5px 0px;
         }
-        #from{
-            float: right;
+        #sbmit:hover{
+            background-color: rgba(0,0,0,0.7);
         }
+
 
     </style>
 <body>
@@ -92,22 +99,35 @@
             <div class="rounded mt-1" id="baby2">
                 <div class="container">
                     <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-8 mt-3">
-                            <h3 class="text-center">Registration Form</h3>
-
-                            <form action="user_registation" method="post" id="from">
+                        <div class="col-3"></div>
+                        <div class="col-6 mt-3">
+                            <h3 class="text-center">DOCTOR Registration Form</h3>
+                            <form action="AdminRegistation" method="post" id="from">
                                 <table class="form-group">
-                                    <tr><td>Patient_Name:<input type="text" name="username" class="form-control" id="fg" required></td></tr>
-                                    <tr><td>Patient_Address <input type="text" name="address" class="form-control" id="fg" required></td></tr>
-                                    <tr><td>Patient_Age <input type="text" name="age" class="form-control" id="fg"required></td></tr>
-                                    <tr><td>Patient_PhoneNumber <input type="text" name="mobleNumber" class="form-control" id="fg"required></td></tr>
-                                    <tr><td>Password <input type="password" name="password" class="form-control" id="fg"required></td></tr>
-                                    <tr><td><input type="submit" name="Submit"  class="form-control mt-1" value="Submit" id="fg1"></td></tr>
+                                    <tr><td>Doctor Name <input type="text" class="form-control" name="doctorname" required></td></tr>
+                                    <tr><td> Doctor Password: <input type="password" class="form-control text-dark" name="doctorpass" required></td></tr>
+                                    <tr><td>Select Category
+                                        <select class="custom-select" name="doctorcategori" required>
+                                            <option value="Medicine" name="1">Medicine</option>
+                                            <option value="Cardiologist" name="2">Cardiologist</option>
+                                            <option value="Three" name="3">Three</option>
+                                            <option value="Three" name="4">Three</option>
+                                            <option value="Three" name="5">Three</option>
+                                            <option value="Three" name="6">Three</option>
+                                        </select>
+                                    </td></tr>
+                                    <tr><td>Select Date<input type="date" name="selectdate"  id="dpicker" required></td></tr>
+
+                                    <tr><td>Starting Time<input type="time" name="startingtime" id="dpicker" required></td></tr>
+
+                                    <tr><td>Ending Time<input type="time" name="endingtime" id="dpicker" required></td></tr>
+                                    <tr><td><input type="submit" name="submit" value="Submit" id="sbmit"></td></tr>
+
                                 </table>
                             </form>
+
                         </div>
-                        <div class="col-2"></div>
+                        <div class="col-3"></div>
                     </div>
                 </div>
             </div>
@@ -121,10 +141,9 @@
 
 
 
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
 <script src="JS/bootstrap.min.js"></script>
 </body>
 </html>

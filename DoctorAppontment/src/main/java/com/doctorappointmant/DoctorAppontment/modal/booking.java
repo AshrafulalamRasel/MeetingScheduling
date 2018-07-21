@@ -10,18 +10,19 @@ public class booking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String p_name;
-    private String d_name;
+    private String patname;
+    private String doctname;
     private String categoris;
     private String date;
     private String time;
 
-    public booking() {
+    public booking(){
 
     }
-    public booking(String p_name, String d_name, String categoris, String date, String time) {
-        this.p_name = p_name;
-        this.d_name = d_name;
+
+    public booking(String patname, String doctname, String categoris, String date, String time) {
+        this.patname = patname;
+        this.doctname = doctname;
         this.categoris = categoris;
         this.date = date;
         this.time = time;
@@ -35,20 +36,20 @@ public class booking {
         this.id = id;
     }
 
-    public String getP_name() {
-        return p_name;
+    public String getPatname() {
+        return patname;
     }
 
-    public void setP_name(String p_name) {
-        this.p_name = p_name;
+    public void setPatname(String patname) {
+        this.patname = patname;
     }
 
-    public String getD_name() {
-        return d_name;
+    public String getDoctname() {
+        return doctname;
     }
 
-    public void setD_name(String d_name) {
-        this.d_name = d_name;
+    public void setDoctname(String doctname) {
+        this.doctname = doctname;
     }
 
     public String getCategoris() {
@@ -79,8 +80,8 @@ public class booking {
     public String toString() {
         return "booking{" +
                 "id=" + id +
-                ", p_name='" + p_name + '\'' +
-                ", d_name='" + d_name + '\'' +
+                ", patname='" + patname + '\'' +
+                ", doctname='" + doctname + '\'' +
                 ", categoris='" + categoris + '\'' +
                 ", date='" + date + '\'' +
                 ", time='" + time + '\'' +

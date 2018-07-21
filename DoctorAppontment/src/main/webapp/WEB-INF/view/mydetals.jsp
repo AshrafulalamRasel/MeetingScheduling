@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="text/css">
     <title>Patien Profile</title>
+
+
     <style>
         body{
             background: url('back.jpg');
@@ -64,9 +66,7 @@
                 <h3 id="h1" class="text-left text-danger pl-3 py-5">DOCTOR BOOKING APPOINMENT SYSTEM</h3>
                 <div class="container">
                     <div class="row">
-                        <div class="col-12 text-center">
-                            <a href="searchin"><button type="button" class ="btn btn-success text-center px-5">Search Your Details</button></a>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -79,11 +79,11 @@
                             <ul>
                                 <li><a href="loginTo">My Details</a></li>
                                 <li><a href="appoinmentbook">Book Appoinment</a></li>
-                                <li><a href="">View Booking</a></li>
-                                <li><a href="">Cancle Booking</a></li>
-                                <li><a href="">Search Doctor</a></li>
+                                <li><a href="bookingh">View Booking</a></li>
+                                <li><a href="canclebook">Cancle Booking</a></li>
+                                <li><a href="Serachbook">Search Your Booking</a></li>
                                 <li><a href="">Feedback</a></li>
-                                <li><a href="">Logout</a></li>
+                                <li><a href="logout">Logout</a></li>
                             </ul>
                         </div>
                     </div>

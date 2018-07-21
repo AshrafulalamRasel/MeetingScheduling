@@ -1,7 +1,9 @@
 package com.doctorappointmant.DoctorAppontment.controller;
 
 import com.doctorappointmant.DoctorAppontment.modal.User;
+import com.doctorappointmant.DoctorAppontment.modal.admin;
 import com.doctorappointmant.DoctorAppontment.modal.booking;
+import com.doctorappointmant.DoctorAppontment.modal.sendData;
 import com.doctorappointmant.DoctorAppontment.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 
 @Controller
@@ -16,7 +19,8 @@ public class ApplicationController {
 
     @Autowired
     UserService userService;
-//**************StartingPoint****************************************************************************//
+    sendData sendData1=new sendData();
+//------------------------------------------------------------------StartingPoint-------------------------------------------------------//
     @RequestMapping("/")
     public String Welcome() {
         return "home";
@@ -27,10 +31,11 @@ public class ApplicationController {
         return "bookingappoinment";
     }
 
-    //**************Ending startPoint****************************************************************************//
+//------------------------------------------------------------------Start end Point-------------------------------------------------------//
 
 
-//*********************************Registation Start from User**********************************************//
+//------------------------------------------------------------------Registation Form Start-------------------------------------------------------//
+
     @RequestMapping("/registration")
     public String registation() {
 
@@ -41,10 +46,12 @@ public class ApplicationController {
         userService.saveMyUser(user);
         return "patient";
     }
-//********************************* End Registation  from User**********************************************//
+//-------------------------------------------------------End Registation Form-------------------------------------------------------//
 
 
-////*********************************Login Start from User**********************************************//
+
+//-----------------------------------------------------------------------------------------------Login Start-------------------------------------------------------//
+
     @RequestMapping("/paitenin")
     public String Patient() {
 
@@ -55,6 +62,7 @@ public class ApplicationController {
     @RequestMapping("/login_user")
     public String loginUser(@ModelAttribute User user, HttpServletRequest request) {
         if(userService.findByUsernameAndPassword(user.getUsername(), user.getPassword())!=null) {
+            sendData1.setName(user.getUsername());
             return "transLogin";
         }
         else {
@@ -63,23 +71,28 @@ public class ApplicationController {
 
         }
     }
-////*********************************Login End from User**********************************************//
+//----------------------------------------------------------------------------------------------------Login End-------------------------------------------------------//
 
 
 
-//*********************************Mydetals*********************************************************//
+//---------------------------------------------------------------------------------------------------Start Mydetails-------------------------------------------------------//
+
     @GetMapping("/loginTo")
     public String AllUser(HttpServletRequest request)
     {
-        request.setAttribute("users",userService.showAllUsers());
+       List<User> nameAll= userService.showProfule(sendData1.getName());
+
+        request.setAttribute("users",nameAll);
 
         return "mydetals";
     }
-//*********************************End of Mydetals*********************************************************//
+//---------------------------------------------------------------------------------------------------------End Mydetails-------------------------------------------------------//
 
 
 
-// ********************************Update All user ***********************************//
+
+//-----------------------------------------------------------------------------------------------------------Update Start-------------------------------------------------------//
+
 
     @RequestMapping("/edit-user")
     public String editUser(@RequestParam int id,HttpServletRequest request) {
@@ -93,9 +106,11 @@ public class ApplicationController {
         return "mydetals";
     }
 
-    //******************************** End Update All user ***********************************//
+//----------------------------------------------------------------------------------------------------------------End Update-------------------------------------------------------//
 
-    //******************************** Delete All user ***********************************//
+
+    //--------------------------------------------------------------------------------------------Delete Start-------------------------------------------------------//
+
     @RequestMapping("/delete-user")
     public String deleteUser()
     {
@@ -108,10 +123,10 @@ public class ApplicationController {
         request.setAttribute("users", userService.showAllUsers());
         return "mydetals";
     }
-    //******************************** End Delete All user ***********************************//
+//---------------------------------------------------------------------------------------------------Delete End-------------------------------------------------------//
 
     //******************************** Search All user ***********************************//
-    @RequestMapping("/searchin")
+   /* @RequestMapping("/searchin")
     public String Searching() {
 
         return "Searchdetails";
@@ -122,21 +137,37 @@ public class ApplicationController {
     {
         request.setAttribute("users", userService.search(id));
         return "mydetals";
-    }
+    }*/
     //******************************** End Search All user ***********************************//
-//==================================Patirnt registation+++++++++++++++++++++++//
+
+ //***************************************End Patient*****************************************//
+
+
+
+
+
+
+
+//---------------------------------------------------------------------------------------------------------Patient Registation-------------------------------------------------------//
+
     @RequestMapping("/appoinmentbook")
     public String appoint() {
         return "bookingappoinment";
     }
     @PostMapping("/savebookingn")
     public String booking(@ModelAttribute booking book, BindingResult bindingResult, HttpServletRequest request) {
-        userService.saveMyUserbooking(book);
+        userService.saveMybooking(book);
+        return "bookingappoinment";
+    }
+    @RequestMapping("/checkbook")
+    public String bookc() {
         return "bookingappoinment";
     }
 
-   //================================== End Patirnt registation+++++++++++++++++++++++//
+ //-----------------------------------------------------------------------------------------------------------End Registation-------------------------------------------------------//
 
+
+//-----------------------------------------------------------------------------------------------------------------Show All booking-------------------------------------------------------//
 
     @GetMapping("/bookingh")
     public String Allbookers(HttpServletRequest request)
@@ -145,6 +176,9 @@ public class ApplicationController {
 
         return "Viewbookig";
     }
+//----------------------------------------------------------------------------------------------------------------show all End Booking-------------------------------------------------------//
+
+ //------------------------------------------------------------------------------------------------------------------Booking Update-------------------------------------------------------//
 
     @RequestMapping("/edit-patient")
     public String editpation(@RequestParam int id,HttpServletRequest request) {
@@ -153,13 +187,12 @@ public class ApplicationController {
     }
     @PostMapping("/patient_update")
     public String Updatepatient(@ModelAttribute booking book, BindingResult bindingResult, HttpServletRequest request) {
-        userService.saveMyUserbooking(book);
-        return "Editpation";
+        userService.saveMybooking(book);
+        return "bookingappoinment";
     }
-    @RequestMapping("/updat")
-    public String upon() {
-        return "Viewbookig";
-    }
+//----------------------------------------------------------------------------------------------------------------------End Booking Update-------------------------------------------------------//
+
+//-----------------------------------------------------------------------------------------------------------------------Cancle Booking-------------------------------------------------------//
 
     @RequestMapping("/canclebook")
     public String Cancle() {
@@ -173,6 +206,9 @@ public class ApplicationController {
         request.setAttribute("books", userService.showbooking());
         return "Viewbookig";
     }
+//------------------------------------------------------------------------------------------------------------------------End Cancle Booking-------------------------------------------------------//
+
+//------------------------------------------------------------------------------------------------------------------------Search Booking-------------------------------------------------------//
 
     @RequestMapping("/Serachbook")
     public String Searchingbook() {
@@ -186,6 +222,77 @@ public class ApplicationController {
         request.setAttribute("books", userService.searchbok(id));
         return "Viewbookig";
     }
+//-------------------------------------------------------------------------------------------------------------------------End Search Booking-------------------------------------------------------//
+
+    @RequestMapping("/logout")
+    public String Logout() {
+
+        return "home";
+    }
+//------------------------------------------------------------------------------------------------------------------------Start Admin Panel-------------------------------------------------------//
+
+    @RequestMapping("/admin")
+    public String Admin() {
+        return "adminregdoc";
+    }
+
+    @PostMapping("/AdminRegistation")
+    public String adminRegi(@ModelAttribute admin add, BindingResult bindingResult, HttpServletRequest request) {
+        userService.saveMyadmin(add);
+        return "home";
+    }
+
+//-------------------------------------------------------------------------------------------------------------------------End Admin Panel-------------------------------------------------------//
+
+
+//------------------------------------------------------------------Start Doctor Panel-------------------------------------------------------//
+
+    @RequestMapping("/doctor")
+    public String Doctor() {
+        return "doctorlogin";
+    }
+
+    @RequestMapping("/Doctorlogin")
+    public String loginDoctor(@ModelAttribute admin add, HttpServletRequest request) {
+        if(userService.findByDoctornameAndDoctorpass(add.getDoctorname(), add.getDoctorpass())!=null) {
+          sendData1.setNameDoc(add.getDoctorname());
+            return "doctorafterlog";
+        }
+        else {
+            request.setAttribute("error", "Invalid Username or Password");
+            return "adminregdoc";
+
+        }
+    }
+
+    @RequestMapping("/patientio")
+    public String patientview(HttpServletRequest request) {
+        String name=sendData1.getNameDoc();
+    List<booking> showDetails=userService.bookingDetails(name);
+        request.setAttribute("show",showDetails);
+        return "patientinfo";
+    }
+
+    @GetMapping("/doctorinfo")
+    public String Alldoctors(HttpServletRequest request)
+    {
+        request.setAttribute("addm",userService.showAlldoctor());
+        return "doctorunfo";
+    }
+
+    @RequestMapping("/yourprofile")
+    public String Searchingdoctor() {
+
+        return "doctorprofile";
+    }
+
+    @PostMapping("/doctorprofileview")
+    public String doctorpro(@RequestParam int id, HttpServletRequest request)
+    {
+        request.setAttribute("addm", userService.searchdoct(id));
+        return "doctorunfo";
+    }
+
 }
 
 

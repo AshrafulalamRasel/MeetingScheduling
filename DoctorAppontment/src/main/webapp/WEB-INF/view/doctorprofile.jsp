@@ -17,7 +17,6 @@
 
         });
     </script>
-
 </head>
 <body class="bg-dark">
 <div class="container mt-5">
@@ -31,11 +30,11 @@
                 </div>
                 <div class="card-body">
                     <div class="input-group ml-5 pl-5 pb-3">
-                        <form class="form-horizontal" method="POST" action="Searchall-user">
+                        <form class="form-horizontal" method="POST" action="doctorprofileview">
                             <table>
 
                                 <tr>
-                                    <td><input type="text" class="form-control bg-dark text-light" name="id" placeholder="Enter Your id" required></td>
+                                    <td><input type="text" class="form-control bg-dark text-light" name="id" placeholder="Doctor Registation Id:" required></td>
                                 </tr>
 
                                 <tr>

@@ -24,7 +24,7 @@
                             <table>
 
                                 <tr>
-                                    <td><input type="text" class="form-control bg-dark text-light" name="id" placeholder="Enter Your id"required></td>
+                                    <td><input type="text" class="form-control bg-dark text-light" name="id" placeholder="Enter Your Patient id"required></td>
                                 </tr>
 
                                 <tr>

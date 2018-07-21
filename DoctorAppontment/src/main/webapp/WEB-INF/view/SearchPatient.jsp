@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="font-awesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="text/css">
     <title>Search</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("form").submit(function () {
+                alert("Successfully Search!!");
+
+            });
+
+        });
+    </script>
 </head>
 <body class="bg-dark">
 <div class="container mt-5">
@@ -24,7 +34,7 @@
                             <table>
 
                                 <tr>
-                                    <td><input type="text" class="form-control bg-dark text-light" name="id" placeholder="Enter Your id" required></td>
+                                    <td><input type="text" class="form-control bg-dark text-light" name="id" placeholder="Enter Your Patient id" required></td>
                                 </tr>
 
                                 <tr>

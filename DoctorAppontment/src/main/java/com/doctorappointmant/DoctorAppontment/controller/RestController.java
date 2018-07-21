@@ -1,6 +1,7 @@
 package com.doctorappointmant.DoctorAppontment.controller;
 
 import com.doctorappointmant.DoctorAppontment.modal.User;
+import com.doctorappointmant.DoctorAppontment.modal.admin;
 import com.doctorappointmant.DoctorAppontment.modal.booking;
 import com.doctorappointmant.DoctorAppontment.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,18 @@ public class RestController {
     }
 
     //======================For Booking
-    @GetMapping("/savebooking")
-    public String saveUserbook(@RequestParam String p_name, @RequestParam String d_name, @RequestParam String categoris, @RequestParam String date,  @RequestParam String time) {
-        booking book = new booking(p_name, d_name, categoris, date, time);
-        userService.saveMyUserbooking(book);
+  @GetMapping("/savebooking")
+    public String saveUserbook(@RequestParam String patname, @RequestParam String doctname, @RequestParam String categoris, @RequestParam String date,  @RequestParam String time) {
+        booking book = new booking(patname, doctname, categoris, date, time);
+        userService.saveMybooking(book);
+        return "User Saved";
+    }
+
+    //======================For Admin
+    @GetMapping("/adminregi")
+    public String saveAdminregi(@RequestParam String doctorname,@RequestParam String doctorpass, @RequestParam String doctorcategori, @RequestParam String selectdate, @RequestParam String startingtime,  @RequestParam String endingtime) {
+        admin add = new admin(doctorname,doctorpass, doctorcategori, selectdate, startingtime, endingtime);
+        userService.saveMyadmin(add);
         return "User Saved";
     }
 

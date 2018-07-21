@@ -62,7 +62,7 @@
                         <div class="col-3"></div>
                         <div class="col-3">
                             <div>
-                                <a href="" id="btn1" class="btn rounded-circle border-outline text-center">Admin Login</a>
+                                <a href="admin" id="btn1" class="btn rounded-circle border-outline text-center">Admin Login</a>
                             </div>
                         </div>
                         <div class="col-3">
@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-3">
                             <div>
-                                <a href="" id="btn1" class="btn rounded-circle text-center">Doctor Login</a></div>
+                                <a href="doctor" id="btn1" class="btn rounded-circle text-center">Doctor Login</a></div>
                         </div>
                     </div>
                 </div>
